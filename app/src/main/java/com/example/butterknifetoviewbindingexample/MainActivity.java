@@ -1,20 +1,13 @@
 package com.example.butterknifetoviewbindingexample;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.butterknifetoviewbindingexample.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-
-    //first let's run the app
-
-    //Now start the migration
 
     private ActivityMainBinding binding;
 
