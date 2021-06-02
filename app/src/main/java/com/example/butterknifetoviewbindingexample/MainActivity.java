@@ -1,6 +1,7 @@
 package com.example.butterknifetoviewbindingexample;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,10 +19,23 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.textView.setText("Sample Text ViewBinding");
-        binding.btnChange.setOnClickListener(v -> btnClick());
-        binding.imageView.setOnClickListener(v -> imgClick());
+        binding.textView.setText("ViewBinding");
+        binding.btnChange.setOnClickListener(clickListener);
+        binding.imageView.setOnClickListener(clickListener);
+        binding.textView.setOnClickListener(clickListener);
     }
+
+    private View.OnClickListener clickListener = v -> {
+        if (v == binding.btnChange) {
+            btnClick();
+        }
+        if (v == binding.imageView) {
+            imgClick();
+        }
+        if (v == binding.textView) {
+            textClick();
+        }
+    };
 
     void btnClick() {
         Toast.makeText(this, "Button Clicked", Toast.LENGTH_SHORT).show();
@@ -29,5 +43,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void imgClick() {
         Toast.makeText(this, "Image Clicked", Toast.LENGTH_SHORT).show();
+    }
+
+    public void textClick() {
+        Toast.makeText(this, "Text Clicked", Toast.LENGTH_SHORT).show();
     }
 }
