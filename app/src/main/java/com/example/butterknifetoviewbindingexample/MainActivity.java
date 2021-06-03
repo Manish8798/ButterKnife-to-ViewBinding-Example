@@ -3,6 +3,7 @@ package com.example.butterknifetoviewbindingexample;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,7 +15,7 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.image_view)
-    ImageView imageView;
+    View imageView;
 
     @BindView(R.id.textView)
     TextView textView;
