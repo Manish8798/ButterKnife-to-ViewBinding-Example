@@ -1,51 +1,44 @@
 package com.example.butterknifetoviewbindingexample;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.butterknifetoviewbindingexample.databinding.ActivityMainBinding;
+import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ActivityMainBinding binding;
+    @BindView(R.id.image_view)
+    ImageView imageView;
 
+    @BindView(R.id.textView)
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
-        binding.textView.setText("Text ViewBinding");
-        binding.btnChange.setOnClickListener(clickListener);
-        binding.imageView.setOnClickListener(clickListener);
-        binding.textView.setOnClickListener(clickListener);
+        setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+        textView.setText("Sample Text ButterKnife");
     }
 
-    private View.OnClickListener clickListener = v -> {
-        if (v == binding.btnChange) {
-            btnClick();
-        }
-        if (v == binding.imageView) {
-            imgClick();
-        }
-        if (v == binding.textView) {
-            textClick();
-        }
-    };
-
+    @OnClick(R.id.btn_change)
     void btnClick() {
         Toast.makeText(this, "Button Clicked", Toast.LENGTH_SHORT).show();
     }
 
-    public void imgClick() {
+    @OnClick(R.id.image_view)
+    void imgClick() {
         Toast.makeText(this, "Image Clicked", Toast.LENGTH_SHORT).show();
     }
 
-    public void textClick() {
+    @OnClick(R.id.textView)
+    void textClick() {
         Toast.makeText(this, "Text Clicked", Toast.LENGTH_SHORT).show();
     }
 }
