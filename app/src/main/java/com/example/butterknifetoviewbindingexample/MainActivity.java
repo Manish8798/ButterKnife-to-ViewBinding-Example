@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.textView.setText("ViewBinding");
+        binding.textView.setText("Text ViewBinding");
         binding.btnChange.setOnClickListener(clickListener);
         binding.imageView.setOnClickListener(clickListener);
         binding.textView.setOnClickListener(clickListener);
